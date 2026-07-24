@@ -32,6 +32,18 @@ console.log("===== Rapport de dépendances voix =====");
 console.log(generateDependencyReport());
 console.log("========================================");
 
+const YT_COOKIE = process.env.YOUTUBE_COOKIE;
+if (YT_COOKIE) {
+  playdl
+    .setToken({ youtube: { cookie: YT_COOKIE } })
+    .then(() => console.log("✅ Cookie YouTube chargé (play-dl authentifié)."))
+    .catch((err) => console.error("⚠️ Impossible de charger le cookie YouTube :", err.message));
+} else {
+  console.log(
+    "ℹ️ Aucun YOUTUBE_COOKIE défini. Si YouTube bloque avec 'Sign in to confirm you're not a bot', ajoute cette variable (voir README)."
+  );
+}
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
