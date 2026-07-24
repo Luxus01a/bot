@@ -1,0 +1,18 @@
+{
+  "name": "discord-music-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord de musique YouTube avec file d'attente",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "@discordjs/voice": "^0.17.0",
+    "play-dl": "^1.9.7",
+    "opusscript": "^0.1.1",
+    "libsodium-wrappers": "^0.7.13",
+    "dotenv": "^16.4.5"
+  }
+}
