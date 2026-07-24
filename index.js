@@ -230,6 +230,13 @@ async function ensureVoiceConnection(message, queue) {
 
     connection.on("stateChange", (oldState, newState) => {
       console.log(`[VOIX] ${oldState.status} -> ${newState.status}`);
+      if (newState.status === "ready" || newState.status === "connecting") {
+        console.log(`[VOIX][networking] ${newState.networking?.state?.code ?? "n/a"}`);
+      }
+    });
+
+    connection.on("debug", (message) => {
+      console.log(`[VOIX][debug] ${message}`);
     });
 
     connection.on("error", (err) => {
